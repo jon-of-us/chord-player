@@ -3,7 +3,7 @@
     import type { MidiNumber } from "./music/types";
     import Button from "./Button.svelte";
     import { Instrument } from "./music/instrument";
-    import { newNoteName } from "./music/note_names";
+    import { newNoteName, oldNoteName } from "./music/note_names";
     import * as s from "../settings/button";
 
     export let startTone: MidiNumber;
@@ -11,14 +11,20 @@
     /** also determins row length*/
     export let shortcutKeys: string[];
     export let instrument: Instrument;
+
+    function note(i: number) {
+        return startTone + 7 * i;
+    }
 </script>
 
 <div class="button-row">
     <h1 style:width={s.buttonSize}>{chrdType.toString()}</h1>
     {#each shortcutKeys as shortcutKey, i}
         <Button
-            label={newNoteName(startTone + 7 * i)}
-            sound={new Chord(instrument, startTone + 7 * i, chrdType)}
+            label={newNoteName(note(i))}
+            topDescriptionLabel={oldNoteName(note(i))}
+            bottomDescriptionLabel={`press ${shortcutKey}`}
+            sound={new Chord(instrument, note(i), chrdType)}
             {shortcutKey}
         />
     {/each}

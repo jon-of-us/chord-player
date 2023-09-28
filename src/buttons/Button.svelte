@@ -1,19 +1,18 @@
 <script lang="ts">
-    import { onMount, onDestroy, createEventDispatcher } from "svelte";
+    import { onMount, onDestroy } from "svelte";
     import type { Sound } from "./music/types";
     import * as s from "../settings/button";
 
     export let sound: Sound;
     export let shortcutKey: string;
     export let label: string;
+    export let topDescriptionLabel = "";
+    export let bottomDescriptionLabel = "";
     let isOn = false;
-
-    const dispatch = createEventDispatcher();
 
     function playSound(): void {
         isOn = true;
         sound.start();
-        dispatch("click");
     }
 
     function stopSound(): void {
@@ -60,18 +59,50 @@
     style:margin={s.buttonMargin}
 >
     {label}
+    <p class="descriptionlabel" id="topDescriptionLabel">
+        {topDescriptionLabel}
+    </p>
+    <p class="descriptionlabel" id="bottomDescriptionLabel">
+        {bottomDescriptionLabel}
+    </p>
 </button>
 
 <style>
     button {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
         border: none;
         border-radius: 4px;
         color: #fff;
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.15s ease-in-out;
+        position: relative;
+        font-weight: 300;
+        font-size: 1.8rem;
     }
     button:hover {
         opacity: 0.8;
+    }
+    .descriptionlabel {
+        font-weight: 300;
+        font-size: 1rem;
+        margin: 0;
+        margin-top: 6px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+        position: absolute;
+        align-self: center;
+    }
+    button:hover .descriptionlabel {
+        opacity: 0.6;
+    }
+    #topDescriptionLabel {
+        top: 0px;
+    }
+    #bottomDescriptionLabel {
+        bottom: 0px;
     }
 </style>
