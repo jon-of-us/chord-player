@@ -1,19 +1,23 @@
-<!-- Button.svelte -->
-
 <script lang="ts">
-    import { onMount, onDestroy } from "svelte";
-    import type { Sound } from "./music/tones";
+    import { onMount, onDestroy, createEventDispatcher } from "svelte";
+    import type { Sound } from "./music/types";
+
     export let sound: Sound;
     export let shortcutKey: string;
+    export let label: string;
+    let isOn = false;
+
+    const dispatch = createEventDispatcher();
 
     function playSound(): void {
+        isOn = true;
         sound.start();
+        dispatch("click");
     }
 
     function stopSound(): void {
-        if (sound) {
-            sound.stop();
-        }
+        isOn = false;
+        sound.stop();
     }
 
     function handleKeyDown(event: KeyboardEvent): void {
@@ -47,25 +51,22 @@
 <button
     on:mousedown={playSound}
     on:mouseup={stopSound}
-    on:mouseleave={stopSound}
+    on:touchstart={playSound}
+    on:touchend={stopSound}
+    style:background-color={isOn ? "#606060" : "#404040"}
 >
-    Press me!
+    {label}
 </button>
 
 <style>
     button {
         width: 80px;
         height: 80px;
-        background-color: #888;
         border: none;
         border-radius: 4px;
         color: #fff;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    button:hover {
-        background-color: #666;
+        transition: background-color 0.2s ease-in-out;
     }
 </style>
