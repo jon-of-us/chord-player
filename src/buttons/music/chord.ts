@@ -1,12 +1,12 @@
 import type { MidiNumber, Sound } from "./types";
-import { Tone } from "./tones";
+import { Tone } from "./tone";
 import * as ms from "../../settings/button";
 import { Instrument } from "./instrument";
 
 export enum chordType {
-    major,
-    minor,
-    diminished,
+    major = "maj",
+    minor = "min",
+    diminished = "dim",
 }
 
 function chordTones(root: MidiNumber, type: chordType): MidiNumber[] {

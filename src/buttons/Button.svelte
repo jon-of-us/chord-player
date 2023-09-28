@@ -69,6 +69,9 @@
         color: #fff;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.2s ease-in-out;
+        transition: background-color 0.15s ease-in-out;
+    }
+    button:hover {
+        opacity: 0.8;
     }
 </style>

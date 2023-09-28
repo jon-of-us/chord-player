@@ -5,6 +5,7 @@ import { type MidiNumber } from "../buttons/music/types";
 export const noteRange = 12 * 4;
 export const toneType: OscillatorType = "triangle";
 export const startTone: MidiNumber = 58;
+export const volume = 1.5;
 
 //appearance
 

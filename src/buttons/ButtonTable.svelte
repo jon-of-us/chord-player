@@ -1,13 +1,22 @@
 <script lang="ts">
     import ButtonRow from "./ButtonRow.svelte";
     import { Instrument } from "./music/instrument";
-    import { chordType } from "./music/chords";
+    import { chordType } from "./music/chord";
     import { startTone } from "../settings/button";
+    import AudioActivateBar from "./AudioActivateBar.svelte";
 
-    let instrument = new Instrument();
+    let showAudioActivate = false;
+    function activateAudio() {
+        showAudioActivate = true;
+        setTimeout(() => {
+            showAudioActivate = false;
+        }, 1000);
+    }
+    let instrument = new Instrument(activateAudio);
 </script>
 
 <main>
+    <AudioActivateBar bind:showAudioActivate />
     <ButtonRow
         {startTone}
         shortcutKeys={["q", "w", "e", "r", "t", "z", "u", "i", "o", "p", "ü"]}
