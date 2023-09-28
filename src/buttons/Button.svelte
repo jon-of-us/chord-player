@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount, onDestroy, createEventDispatcher } from "svelte";
     import type { Sound } from "./music/types";
+    import * as s from "../settings/button";
 
     export let sound: Sound;
     export let shortcutKey: string;
@@ -54,14 +55,15 @@
     on:touchstart={playSound}
     on:touchend={stopSound}
     style:background-color={isOn ? "#606060" : "#404040"}
+    style:width={s.buttonSize}
+    style:height={s.buttonSize}
+    style:margin={s.buttonMargin}
 >
     {label}
 </button>
 
 <style>
     button {
-        width: 80px;
-        height: 80px;
         border: none;
         border-radius: 4px;
         color: #fff;

@@ -3,7 +3,7 @@
     import type { MidiNumber } from "./music/types";
     import Button from "./Button.svelte";
     import { Instrument } from "./music/instrument";
-    import { noteName } from "./music/harmonic_system";
+    import { new } from "./music/note_names";
 
     export let startTone: MidiNumber;
     export let chrdType: chordType;
@@ -15,7 +15,7 @@
 <div class="button-row">
     {#each shortcutKeys as shortcutKey, i}
         <Button
-            label={noteName(startTone + 7 * i)}
+            label={new (startTone + 7 * i)()}
             sound={new Chord(instrument, startTone + 7 * i, chrdType)}
             {shortcutKey}
         />
@@ -26,8 +26,6 @@
     /* Row styling */
     .button-row {
         display: flex;
-        gap: 10px;
-        justify-content: center;
-        margin-top: 20px;
+        flex-direction: row;
     }
 </style>

@@ -1,6 +1,6 @@
 import type { MidiNumber, Sound } from "./types";
 import { Tone } from "./tones";
-import * as ms from "../../settings/music_settings";
+import * as ms from "../../settings/button";
 import { Instrument } from "./instrument";
 
 export enum chordType {

@@ -1,10 +1,16 @@
-<!-- App.svelte -->
-
 <script>
-    import ChordTable from "./buttons/ChordTable.svelte";
-    import { chordType } from "./buttons/music/chords";
+    import ButtonTable from "./buttons/ButtonTable.svelte";
 </script>
 
 <main>
-    <ChordTable />
+    <ButtonTable />
 </main>
+
+<style>
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+</style>
