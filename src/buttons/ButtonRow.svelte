@@ -35,5 +35,6 @@
     .button-row {
         display: flex;
         flex-direction: row;
+        touch-action: none;
     }
 </style>
