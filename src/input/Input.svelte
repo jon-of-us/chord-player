@@ -1,8 +1,8 @@
 <script lang="ts">
     import { input_store } from "./input_store";
-    import PointerDown from "./PointerDown.svelte";
+    import MouseDown from "./MouseDown.svelte";
 </script>
 
 <div>
-    <PointerDown bind:isPointerDown={$input_store.isPointerDown} />
+    <MouseDown bind:isMouseDown={$input_store.mouse.isDown} />
 </div>

@@ -1,9 +1,11 @@
 <script>
     import ButtonTable from "./buttons/ButtonTable.svelte";
+    import Input from "./input/Input.svelte";
 </script>
 
 <main>
     <ButtonTable />
+    <Input />
 </main>
 
 <style>

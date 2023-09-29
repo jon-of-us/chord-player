@@ -2,6 +2,7 @@
     import { onMount, onDestroy } from "svelte";
     import type { Sound } from "./music/types";
     import * as s from "../settings/button";
+    import { input_store } from "../input/input_store";
 
     export let sound: Sound;
     export let shortcutKey: string;
@@ -20,6 +21,12 @@
         sound.stop();
     }
 
+    function handlePointerEnter(): void {
+        if ($input_store.mouse) {
+            playSound();
+        }
+    }
+
     function handleKeyDown(event: KeyboardEvent): void {
         if (event.key === shortcutKey) {
             playSound();
@@ -30,6 +37,10 @@
         if (event.key === shortcutKey) {
             stopSound();
         }
+    }
+
+    function handlePointerCapture(): void {
+        playSound();
     }
 
     onMount(() => {
@@ -49,9 +60,9 @@
 </script>
 
 <button
-    on:pointerdown={playSound}
-    on:pointerup={stopSound}
+    on:pointerenter={handlePointerEnter}
     on:pointerleave={stopSound}
+    on:gotpointercapture={handlePointerCapture}
     style:background-color={isOn ? "#606060" : "#404040"}
     style:width={s.buttonSize}
     style:height={s.buttonSize}
