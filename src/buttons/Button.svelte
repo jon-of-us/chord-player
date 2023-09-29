@@ -21,8 +21,8 @@
         sound.stop();
     }
 
-    function handlePointerEnter(): void {
-        if ($input_store.mouse) {
+    function handleMouseEnter(): void {
+        if ($input_store.mouse.isDown) {
             playSound();
         }
     }
@@ -37,10 +37,6 @@
         if (event.key === shortcutKey) {
             stopSound();
         }
-    }
-
-    function handlePointerCapture(): void {
-        playSound();
     }
 
     onMount(() => {
@@ -60,9 +56,11 @@
 </script>
 
 <button
-    on:pointerenter={handlePointerEnter}
+    on:mousedown={playSound}
+    on:mouseenter={handleMouseEnter}
+    on:touchstart={playSound}
+    on:pointerenter={playSound}
     on:pointerleave={stopSound}
-    on:gotpointercapture={handlePointerCapture}
     style:background-color={isOn ? "#606060" : "#404040"}
     style:width={s.buttonSize}
     style:height={s.buttonSize}
