@@ -8,9 +8,8 @@ export class Tone implements Sound {
     constructor(private instrument: Instrument, private note: MidiNumber) {}
 
     async start(): Promise<void> {
-        if (this.sound == null) {
-            this.sound = await this.instrument.play(this.note);
-        }
+        this.stop();
+        this.sound = await this.instrument.play(this.note);
     }
 
     stop(): void {

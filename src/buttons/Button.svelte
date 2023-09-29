@@ -22,13 +22,18 @@
     }
 
     function handleMouseEnter(): void {
+        isOn = true;
         if ($input_store.mouse.isDown) {
-            playSound();
+            setTimeout(() => {
+                if (isOn) {
+                    playSound();
+                }
+            }, 200);
         }
     }
 
     function handleKeyDown(event: KeyboardEvent): void {
-        if (event.key === shortcutKey) {
+        if (event.key === shortcutKey && !isOn) {
             playSound();
         }
     }
@@ -57,10 +62,10 @@
 
 <button
     on:mousedown={playSound}
-    on:mouseenter={handleMouseEnter}
     on:touchstart={playSound}
-    on:pointerenter={playSound}
+    on:pointerenter={handleMouseEnter}
     on:pointerleave={stopSound}
+    on:pointerup={stopSound}
     style:background-color={isOn ? "#606060" : "#404040"}
     style:width={s.buttonSize}
     style:height={s.buttonSize}
