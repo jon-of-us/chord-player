@@ -32,6 +32,12 @@
         }
     }
 
+    function handleTouchMove(): void {
+        if (!isOn) {
+            handleMouseEnter();
+        }
+    }
+
     function handleKeyDown(event: KeyboardEvent): void {
         if (event.key === shortcutKey && !isOn) {
             playSound();
@@ -63,7 +69,8 @@
 <button
     on:mousedown={playSound}
     on:touchstart={playSound}
-    on:pointerenter={handleMouseEnter}
+    on:mouseenter={handleMouseEnter}
+    on:touchmove={handleTouchMove}
     on:pointerleave={stopSound}
     on:pointerup={stopSound}
     style:background-color={isOn ? "#606060" : "#404040"}
