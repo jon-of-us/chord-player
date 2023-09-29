@@ -14,8 +14,7 @@ export class Instrument {
                 (window as any).webkitAudioContext)();
             this.instrument = await Soundfont.instrument(
                 AudioContext,
-                // "acoustic_grand_piano"
-                "src/buttons/music/acoustic_grand_piano-mp3.js" as any
+                "acoustic_grand_piano"
             );
             let volume = AudioContext.createGain();
             volume.connect(AudioContext.destination);
