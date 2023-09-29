@@ -49,10 +49,9 @@
 </script>
 
 <button
-    on:mousedown={playSound}
-    on:mouseup={stopSound}
-    on:touchstart={playSound}
-    on:touchend={stopSound}
+    on:pointerdown={playSound}
+    on:pointerup={stopSound}
+    on:pointerleave={stopSound}
     style:background-color={isOn ? "#606060" : "#404040"}
     style:width={s.buttonSize}
     style:height={s.buttonSize}
