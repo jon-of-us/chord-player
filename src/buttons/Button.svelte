@@ -82,6 +82,7 @@
         position: relative;
         font-weight: 300;
         font-size: 1.8rem;
+        user-select: none;
     }
     button:hover {
         opacity: 0.8;
@@ -95,6 +96,7 @@
         transition: opacity 0.2s ease-in-out;
         position: absolute;
         align-self: center;
+        user-select: none;
     }
     button:hover .descriptionlabel {
         opacity: 0.6;
