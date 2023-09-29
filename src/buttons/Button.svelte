@@ -82,6 +82,7 @@
         font-weight: 300;
         font-size: 1.8rem;
         user-select: none;
+        touch-action: none;
     }
     button:hover {
         opacity: 0.8;
