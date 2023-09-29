@@ -69,8 +69,9 @@
 <button
     on:mousedown={playSound}
     on:touchstart={playSound}
+    on:touchend={stopSound}
     on:mouseenter={handleMouseEnter}
-    on:touchmove={handleTouchMove}
+    on:mousemove={handleTouchMove}
     on:pointerleave={stopSound}
     on:pointerup={stopSound}
     style:background-color={isOn ? "#606060" : "#404040"}
