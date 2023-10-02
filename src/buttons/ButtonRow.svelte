@@ -11,6 +11,7 @@
     /** also determins row length*/
     export let shortcutKeys: string[];
     export let instrument: Instrument;
+    export let maxRowLength = Infinity;
 
     function note(i: number) {
         return startTone + 7 * i;
@@ -20,13 +21,15 @@
 <div class="button-row">
     <h1 style:width={s.buttonSize}>{chrdType.toString()}</h1>
     {#each shortcutKeys as shortcutKey, i}
-        <Button
-            label={newNoteName(note(i))}
-            topDescriptionLabel={oldNoteName(note(i))}
-            bottomDescriptionLabel={`press ${shortcutKey}`}
-            sound={new Chord(instrument, note(i), chrdType)}
-            {shortcutKey}
-        />
+        {#if i < maxRowLength + 1}
+            <Button
+                label={newNoteName(note(i))}
+                topDescriptionLabel={oldNoteName(note(i))}
+                bottomDescriptionLabel={`press ${shortcutKey}`}
+                sound={new Chord(instrument, note(i), chrdType)}
+                {shortcutKey}
+            />
+        {/if}
     {/each}
 </div>
 

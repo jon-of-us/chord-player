@@ -9,6 +9,9 @@ export const volume = 1.7;
 
 //appearance
 
+export function pixelAsNumber(value: string): number {
+    return parseInt(value.replace("px", ""));
+}
 export const buttonSize = "80px";
 export const buttonFontSize = "20px";
 export const buttonMargin = "4px";

@@ -22,8 +22,8 @@
     }
 
     function handleMouseEnter(): void {
-        isOn = true;
         if ($input_store.mouse.isDown) {
+            isOn = true;
             setTimeout(() => {
                 if (isOn) {
                     playSound();
