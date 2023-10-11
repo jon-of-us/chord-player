@@ -5,6 +5,7 @@
     import { Instrument } from "./music/instrument";
     import { newNoteName, oldNoteName } from "./music/note_names";
     import * as s from "../settings/button";
+    import { fontColor } from "../settings/template_settings";
 
     export let startTone: MidiNumber;
     export let chrdType: chordType;
@@ -19,7 +20,9 @@
 </script>
 
 <div class="button-row">
-    <h1 style:width={s.buttonSize}>{chrdType.toString()}</h1>
+    <h1 style:width={s.buttonSize} style:color={fontColor}>
+        {chrdType.toString()}
+    </h1>
     {#each shortcutKeys as shortcutKey, i}
         {#if i < maxRowLength + 1}
             <Button

@@ -65,7 +65,7 @@
     on:mouseenter={handleMouseEnter}
     on:pointerleave={stopSound}
     on:pointerup={stopSound}
-    style:background-color={isOn ? "#606060" : "#404040"}
+    style:background-color={isOn ? "#606060" : "#303030"}
     style:width={s.buttonSize}
     style:height={s.buttonSize}
     style:margin={s.buttonMargin}
