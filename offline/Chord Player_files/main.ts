@@ -1,8 +1,0 @@
-import App from "/chord-player/src/App.svelte";
-import * as ts from "/chord-player/src/settings/template_settings.ts";
-const app = new App({
-  target: document.body
-});
-export default app;
-
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4udHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IEFwcCBmcm9tIFwiLi9BcHAuc3ZlbHRlXCI7XHJcbmltcG9ydCAqIGFzIHRzIGZyb20gXCIuL3NldHRpbmdzL3RlbXBsYXRlX3NldHRpbmdzXCI7XHJcblxyXG5jb25zdCBhcHAgPSBuZXcgQXBwKHtcclxuICAgIHRhcmdldDogZG9jdW1lbnQuYm9keSxcclxufSk7XHJcblxyXG5leHBvcnQgZGVmYXVsdCBhcHA7XHJcbiJdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxTQUFTO0FBQ2hCLFlBQVksUUFBUTtBQUVwQixNQUFNLE1BQU0sSUFBSSxJQUFJO0FBQUEsRUFDaEIsUUFBUSxTQUFTO0FBQ3JCLENBQUM7QUFFRCxlQUFlOyIsIm5hbWVzIjpbXX0=
