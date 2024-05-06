@@ -2,7 +2,9 @@
     export let showAudioActivate: boolean;
 </script>
 
-<h1 style:opacity={showAudioActivate ? 1 : 0}>audio activates...</h1>
+<h1 style:opacity={showAudioActivate ? 1 : 0}>
+    audio activates... (internet required)
+</h1>
 
 <style>
     h1 {
