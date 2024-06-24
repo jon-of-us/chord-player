@@ -29,21 +29,21 @@
     <ButtonRow
         {startTone}
         shortcutKeys={["q", "w", "e", "r", "t", "z", "u", "i", "o", "p", "ü"]}
-        chrdType={chordType.major}
+        chrdType={chordType.root}
         {instrument}
         bind:maxRowLength
     />
     <ButtonRow
         startTone={startTone + 9}
         shortcutKeys={["a", "s", "d", "f", "g", "h", "j", "k", "l", "ö", "ä"]}
-        chrdType={chordType.minor}
+        chrdType={chordType.root}
         {instrument}
         bind:maxRowLength
     />
     <ButtonRow
         startTone={startTone + 2 * 9}
         shortcutKeys={["y", "x", "c", "v", "b", "n", "m", ",", ".", "-", "_"]}
-        chrdType={chordType.diminished}
+        chrdType={chordType.root}
         {instrument}
         bind:maxRowLength
     />
