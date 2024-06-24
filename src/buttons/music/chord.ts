@@ -7,6 +7,7 @@ export enum chordType {
     major = "maj",
     minor = "min",
     diminished = "dim",
+    root = "root",
 }
 
 function chordTones(root: MidiNumber, type: chordType): MidiNumber[] {
@@ -21,6 +22,8 @@ function chordTones(root: MidiNumber, type: chordType): MidiNumber[] {
         case chordType.diminished:
             basis = [root, root + 3, root + 6];
             break;
+        case chordType.root:
+            basis = [root];
     }
     basis = basis.map((tone) => (tone % 12) + ms.noteRange);
     let bass = [
